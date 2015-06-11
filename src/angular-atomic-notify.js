@@ -4,7 +4,7 @@ angular
     .module('atomic-notify', [])
     .config(['$provide', function($provide){
         $provide.provider('atomicNotify', function(){
-            
+
             var settings = {
                 delay: 0,
                 useicon: true
@@ -31,6 +31,8 @@ angular
         var directive = angular.element('ng-atomic-notify').isolateScope();
 
         var displayNotify = function(options, delay){
+            var directive = directive || angular.element('ng-atomic-notify').isolateScope();
+
             directive.addItem({
                 type: options.type,
                 icon: ((atomicNotify.useicon) ? options.icon : false),
